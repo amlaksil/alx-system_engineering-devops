@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown -R root betty
+sudo chown -R betty
