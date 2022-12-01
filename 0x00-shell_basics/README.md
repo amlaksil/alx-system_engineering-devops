@@ -1,1 +1,1 @@
-My project README file
+a script for shell basic project
