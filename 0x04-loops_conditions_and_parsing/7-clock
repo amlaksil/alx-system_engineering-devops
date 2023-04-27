@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# display hours from 0 to 12
+# display minutes from 1 to 59
+hr=0
+while [ $hr -lt 12 ]
+do
+	echo "Hour: $hr"
+	mnt=1
+	while [ $mnt -le 59 ]
+	do
+		echo "$mnt"
+		(( mnt++ ))
+	done
+	(( hr++ ))
+	if [[ $hr == 12 ]]; then
+		echo "Hour: $hr"
+	fi
+done
+
