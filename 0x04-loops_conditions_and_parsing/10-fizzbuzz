@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-# displays numbers from 1 to 100
+# display numbers from 1 to 100 if number is multiple of 3 and 5 print `FizzBuzz`.
+# If it is multiple of 3 print `Fizz`. For muliple of 5 print `Buzz`
+
 for (( i=1; i <= 100; i++))
 do
-	if (( i % 3 == 0 && i % 5 == 0)); then
-		echo "Fizzbuzz"
-	elif (( i % 3 == 0)); then
+	if (( i % 3 == 0 && i % 5 == 0 )); then
+		echo "FizzBuzz"
+	elif (( i % 3 == 0 )); then
 		echo "Fizz"
 	elif (( i % 5 == 0 )); then
 		echo "Buzz"
