@@ -12,8 +12,5 @@ do
 		(( mnt++ ))
 	done
 	(( hr++ ))
-	if [[ $hr == 12 ]]; then
-		echo "Hour: $hr"
-	fi
 done
 
