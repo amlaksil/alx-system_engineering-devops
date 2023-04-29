@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# prints a string `To infinity and beyond` indefinitely and handle
+# SIGTERM, SIGINT, and SIGQUIT signals
+echo $$ > /var/run/myscript.pid
+
+trap 'echo I hate the kill command; sudo rm -f /var/run/myscript.pid; exit' SIGTERM SIGQUIT
+trap 'echo Y U no love me?!' SIGINT
+for (( ; ; ));
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
