@@ -1,3 +1,6 @@
+# creates puppet file inside /tmp directory and set file permission, owner
+# and grop
+
 file { '/tmp/school':
     ensure  => file,
     path    => '/tmp/school',
