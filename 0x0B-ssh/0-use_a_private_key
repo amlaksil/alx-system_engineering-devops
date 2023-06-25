@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # a bash script that connects to a remote ubuntu server via ssh key
-ssh ubuntu@100.25.152.224
+ssh -i ~/.ssh/school ubuntu@100.25.152.224
