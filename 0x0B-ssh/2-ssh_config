@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# client-side configuration
+Host 100.25.152.224
+    PasswordAuthentication no
+    IdentifyFile ~/.ssh/school
