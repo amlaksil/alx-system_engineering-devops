@@ -1,6 +1,6 @@
 # client configuration file with puppet
 file_line {'configuration_file':
-    ensure => 'present',
+    ensure => present,
     path   => '/etc/ssh/ssh_config',
     user   => 'ubuntu',
     type   => 'ssh-rsa',
@@ -8,7 +8,7 @@ file_line {'configuration_file':
 }
 
 file_line {'no_password':
-    ensure => 'present',
+    ensure => present,
     path   => '/etc/ssh/ssh_config',
     line   => 'PasswordAuthentication no',
     }
