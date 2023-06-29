@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# configure Nginx server so that '/redirect_me' is redirecting to another page
+apt update
+apt install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+str="server_name _;\n\n\tlocation /redirect_me {\n\t\troot /var/www/html;}\n"
+sed -i "s/server_name _;/$str/" /etc/nginx/sites-enabled/default
+service nginx restart
