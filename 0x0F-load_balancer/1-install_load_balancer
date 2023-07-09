@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy on lb-01 server
-apt-get update
 apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.8
+apt-get -y update
 apt-get -y install haproxy=2.8.\*
 sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy # enable the HAProxy init script
 # selecting tcp as the mode configures HAProxy to perfom layer 4 load balancing
