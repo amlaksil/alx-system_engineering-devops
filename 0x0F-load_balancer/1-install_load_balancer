@@ -8,4 +8,5 @@ sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy # enable the HAProxy init s
 # selecting tcp as the mode configures HAProxy to perfom layer 4 load balancing
 sed -i "s/mode\thttp\noption\thttplog/mode\ttcp\noption\ttcplog/" /etc/haproxy/haproxy.cfg
 printf "frontend www\n  bind 100.25.118.178:80\n  default_backend layer4-backend\n" >> /etc/haproxy/haproxy.cfg
-printf "backend layer4-backend\n  balance roundrobin\n  mode tcp\n  server 14548-web-01 100.25.152.224:80 check\n  server 14548-web-02 54.157.175.102:80 check\nservice haproxy restart" >> /etc/haproxy/haproxy.cfg
+printf "backend layer4-backend\n  balance roundrobin\n  mode tcp\n  server 14548-web-01 100.25.152.224:80 check\n  server 14548-web-02 54.157.175.102:80 check" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
