@@ -2,9 +2,9 @@
 """This module contains a script that gather
 data from an API
 """
+import json
 from sys import argv
 from urllib import request
-import json
 
 
 def gather_data_from_api():
