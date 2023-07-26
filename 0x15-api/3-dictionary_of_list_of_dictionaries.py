@@ -24,10 +24,10 @@ def export_to_json():
         file_name = "todo_all_employees.json"
         count = 0
         with open(file_name, mode="a", encoding="utf-8") as f:
-            contents = f'''"{user}": ''' + '['
+            contents += f'''"{user}": ''' + '['
             for task in tasks:
-                contents += "{" + '"username": "{}", "task": {}, "completed": \
-"{}"'.format(
+                contents += "{" + '"username": "{}", "task": "{}", \
+"completed": {}'.format(
                         username, task['title'], 'true' if task['completed']
                         else 'false') + '}'
                 if count != (len(tasks) - 1):
