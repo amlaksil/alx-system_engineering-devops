@@ -23,8 +23,10 @@ def export_to_csv():
     with open(file_name, mode="w", encoding="utf-8") as f:
         contents = '{' + f'''"{argv[1]}": ''' + '['
         for task in tasks:
-            contents += "{" + '''"task": "{}", "completed": {}, "username":\
-{}'''.format(task['title'], task['completed'], username) + '}'
+            contents += "{" + '''"task": "{}", "completed": {}, "username": \
+"{}"'''.format(
+                task['title'], 'true' if task['completed'] else
+                'false', username) + '}'
             if count != (len(tasks) - 1):
                 contents += ', '
             else:
