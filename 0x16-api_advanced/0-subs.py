@@ -12,12 +12,11 @@ def number_of_subscribers(subreddit):
         count for.
     """
     # Get the subreddit's JSON data from the Reddit API.
-    response = requests.get(
-      'https://api.reddit.com/r/{}/about'.format(subreddit))
+    url = 'https://api.reddit.com/r/{}/about.json'.format(subreddit)
+    response = requests.get(url, allow_redirects=False)
     # Check the response status code.
     if response.status_code == 200:
-        data = response.json()
         # The number of subscribers is in the "subscribers" key.
-        return data['subscribers']
+        return response.json()['data']['subscribers']
     # Invalid subreddits
-    return None
+    return 0
