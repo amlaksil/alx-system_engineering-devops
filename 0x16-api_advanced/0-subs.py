@@ -17,7 +17,6 @@ def number_of_subscribers(subreddit):
     # Check the response status code.
     if response.status_code == 200:
         data = response.json()
-        print(data)
         # The number of subscribers is in the "subscribers" key.
         return data['subscribers']
     # Invalid subreddits
