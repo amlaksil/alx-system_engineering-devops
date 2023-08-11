@@ -25,4 +25,5 @@ def top_ten(subreddit):
         else:
             for item in items:
                 print(item['data']['title'])
-    return None
+    else:
+        print(None)
