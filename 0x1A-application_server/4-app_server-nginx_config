@@ -1,0 +1,22 @@
+##
+# The server block below provided a valid configuration for a web server. It listens
+# on port 80 on both IPv4 and IPv6 addresses, and it uses the default server name. The
+# location block specifies that requests for the /api/ path should be proxied to the
+# address 127.0.0.1:5002. Here is a brief explanation of how the server block works:
+# * The listen directive tells the server to listen on port 80 on both IPv4 and IPv6 addresses.
+# * The server_name directive specifies the default server name. This is the name that will be
+# used if a client does not specify a hostname in their request.
+# * The location block specifies that requests for the /api/ path should be proxied to the
+# address 127.0.0.1:5002. This means that any requests that come in to the server on port 80
+# and are for the /api/ path will be forwarded to the address 127.0.0.1:5002.
+##
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	
+	server_name _;
+	location /api/ {
+		proxy_pass http://127.0.0.1:5002;
+	}
+}
+	
