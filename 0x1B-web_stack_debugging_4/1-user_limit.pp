@@ -1,12 +1,13 @@
-# This puppet manifest will create a new user account for holberton, give it sudo privileges
-user { 'holberton':
-  ensure   => present,
-  password => '',
-  groups   => ['sudo'],
+# The `nofile` parameter in the `/etc/security/limits.conf` file specifies the maximum
+# number of open files that a user can have. The first command in the instruction
+# increases the value of `nofile` to 50000, while the second command decreases it to 40000.
+exec {'run_first':
+    provider => shell,
+    command  => 'sudo sed -i "s/nofile 5/nofile 50000/" /etc/security/limits.conf',
+    before   => Exec['run_second'],
 }
-file { '/etc/sudoers.d/holberton':
-  ensure  => present,
-  # grants the holberton user the ability to run any command as any other user
-  # without having to enter a password. 
-  content => 'holberton ALL=(ALL) NOPASSWD: ALL',
+
+exec {'run_second':
+    provider => shell,
+    command  => 'sudo sed -i "s/nofile 4/nofile 40000/"  /etc/security/limits.conf',
 }
