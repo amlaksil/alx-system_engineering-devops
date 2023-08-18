@@ -1,0 +1,16 @@
+# This script will start a Gunicorn process that is bound to port 5003
+# and will spawn 3 worker processes. The process will log errors to /tmp/airbnb-error.log
+# and access to /tmp/airbnb-access.log.
+
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/web_dynamic
+ExecStart=/home/ubuntu/web_dynamic/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 2-2-hbnb:app
+
+[Install]
+wantedBy=multi-user.target
