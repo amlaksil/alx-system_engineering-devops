@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Stop all Gunicorn workers
+killall -s SIGTERM gunicorn
+# Wait for all workers to terminate
+while pgrep -f gunicorn > /dev/null; do
+  sleep 1
+done
+# Start Gunicorn with the new configuration
+gunicorn --config /home/ubuntu/.local/bin/gunicorn.conf
